@@ -1,4 +1,4 @@
-from pyldcfollower import LdcFollowerConnection
+from ldcfollower import LdcFollowerConnection
 
 fac = LdcFollowerConnection()
 

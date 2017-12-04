@@ -1,4 +1,9 @@
+from os import path
+
 from setuptools import setup, find_packages
+
+
+here = path.abspath(path.dirname(__file__))
 
 
 def get_install_requires():
@@ -16,11 +21,14 @@ def get_install_requires():
 setup(
     name='pyldcfollower',
     version='0.0.2',
+
     author='Yang Zhang',
     author_email='yang.zhang@lendup.com',
+
     description="Provide connection to LDC follower database.",
     keywords="LDC follower database",
-    package_dir={'': 'src/lib/'},
+    package_dir={'': 'ldcfollower'},
     packages=find_packages('src/lib/'),
-    install_requires=get_install_requires(),
+
+    install_requires=['psycopg2'],
 )
