@@ -15,7 +15,7 @@ def get_install_requires():
 
 setup(
     name='pyldcfollower',
-    version='0.0.1',
+    version='0.0.2',
     author='Yang Zhang',
     author_email='yang.zhang@lendup.com',
     description="Provide connection to LDC follower database.",

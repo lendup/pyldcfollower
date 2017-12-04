@@ -14,17 +14,22 @@ class LdcFollowerConnection(object):
 
         try:
             _connection = psycopg2.connect(connect_str)
-        except:
-            print "I cannot connect to database."
+
+        except Exception as err:
+            print("Error encountered. I cannot connect to database:")
+            print(err.message)
 
     instance = None
 
     def __init__(self):
         if LdcFollowerConnection.instance is None:
             LdcFollowerConnection.instance = LdcFollowerConnection.__FollowerConnection()
+            assert LdcFollowerConnection.instance is not None, "No connection created."
 
-    def get_connection(self):
+    def connection(self):
+        assert self.instance._connection is not None, "No database connection."
         return self.instance._connection
 
-    def get_cursor(self):
+    def cursor(self):
+        assert self.instance._connection is not None, "No database connection."
         return self.instance._connection.cursor()

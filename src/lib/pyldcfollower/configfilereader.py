@@ -1,12 +1,14 @@
 import os
 import json
+from os.path import expanduser
+import os
 
 
 class ConfigFileReader(object):
 
     ConfigFileEnvVariableName = 'LDC_FOLLOWER_CONFIG_FILE_PATH'
 
-    DefaultConfigFile = '~/.ldcfollower.json'
+    DefaultConfigFile = os.path.join(expanduser("~"), '.ldcfollower.json')
 
     def __init__(self):
         self.config = None
@@ -42,9 +44,9 @@ class ConfigFileReader(object):
         conn = ''
 
         for key in self.config:
-            conn += '%s=%s' % (key, self.config[key])
+            conn += '%s=%s ' % (key, self.config[key])
 
-        return conn
+        return conn.strip()
 
 
 
