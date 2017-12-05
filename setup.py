@@ -27,8 +27,8 @@ setup(
 
     description="Provide connection to LDC follower database.",
     keywords="LDC follower database",
-    package_dir={'': 'ldcfollower'},
-    packages=find_packages(exclude=['tests']),
+
+    packages=find_packages(exclude=['tests', 'venv', 'workspace']),
 
     install_requires=['psycopg2'],
 )
